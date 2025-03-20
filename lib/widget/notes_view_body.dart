@@ -15,7 +15,7 @@ class NotesBudy extends StatelessWidget {
            SizedBox(
             height: 30,
           ),
-           CustomAppBar(),
+           CustomAppBar(icon:Icons.search,title:"Notes",),
            SizedBox(
             height: 20,
           ),
