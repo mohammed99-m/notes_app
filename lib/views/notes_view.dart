@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hivep2/widget/add_node_buttom_sheet.dart';
 import 'package:hivep2/widget/notes_view_body.dart';
 
 class NotesView extends StatelessWidget {
@@ -10,6 +11,9 @@ class NotesView extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
                 context: context,
                 builder: (context) {
                   return AddNodeButtomSheet();
@@ -21,11 +25,3 @@ class NotesView extends StatelessWidget {
   }
 }
 
-class AddNodeButtomSheet extends StatelessWidget {
-  const AddNodeButtomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}

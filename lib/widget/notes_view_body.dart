@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hivep2/widget/custom_appbar.dart';
-import 'package:hivep2/widget/note_item.dart';
 import 'package:hivep2/widget/notes_list_view.dart';
 
 class NotesBudy extends StatelessWidget {
