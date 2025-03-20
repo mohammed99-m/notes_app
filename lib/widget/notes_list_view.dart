@@ -5,15 +5,20 @@ class NotesListView extends StatelessWidget {
   const NotesListView({
     super.key,
   });
-
+  final colors = const [
+      Colors.orange,
+      Colors.red,
+      Colors.blue,
+      Colors.green,
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 3,
+      itemCount: 4,
       itemBuilder: (context, index) {
-        return const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: NoteItem(),
+        return  Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: NoteItem(colorData:colors[index%4],),
         );
       },
     );
