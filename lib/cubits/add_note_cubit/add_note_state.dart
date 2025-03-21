@@ -6,4 +6,7 @@ class AddNotesLoadingState extends AddNotesStates {}
 
 class AddNoTesSuccessState extends AddNotesStates {}
 
-class ADDNotesFailedState extends AddNotesStates {}
+class ADDNotesFailedState extends AddNotesStates {
+  final String errorMessage;
+  ADDNotesFailedState(this.errorMessage);
+}
