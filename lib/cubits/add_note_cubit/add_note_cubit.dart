@@ -6,7 +6,7 @@ import 'package:hivep2/models/note_model.dart';
 
 class AddNoteCubit extends Cubit<AddNotesStates> {
   AddNoteCubit() : super(AddNotesInitialState());
-
+  bool isLoading = false;
   addNote(NoteModel note) async {
     //generics
     emit(AddNotesLoadingState());
