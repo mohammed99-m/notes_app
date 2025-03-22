@@ -43,7 +43,10 @@ class NoteItem extends StatelessWidget {
                   color: Colors.black,
                   size: 30,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  // it extends hive already
+                  noteModel.delete();
+                },
               ),
             ),
             const SizedBox(
