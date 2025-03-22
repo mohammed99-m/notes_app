@@ -4,7 +4,7 @@ import 'package:hivep2/models/note_model.dart';
 import '../views/edit_node_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key, required this.colorData , required this.noteModel});
+  const NoteItem({super.key, required this.colorData, required this.noteModel});
   final Color colorData;
   final NoteModel noteModel;
   @override
@@ -29,12 +29,11 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: Text(
                 noteModel.title,
-                style:const  TextStyle(color: Colors.black, fontSize: 26),
+                style: const TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text(
-                    noteModel.subtitle,
+                child: Text(noteModel.subtitle,
                     style: TextStyle(
                         fontSize: 18, color: Colors.black.withOpacity(0.6))),
               ),
@@ -53,7 +52,7 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Text(
-                "May21 , 2022",
+                noteModel.date,
                 style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
             )

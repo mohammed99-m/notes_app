@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hivep2/cubits/add_note_cubit/add_note_state.dart';
 import 'package:hivep2/models/note_model.dart';
 import 'package:hivep2/widget/custom_button.dart';
+import 'package:intl/intl.dart';
 
 import '../cubits/add_note_cubit/add_note_cubit.dart';
 import 'custom_text_field.dart';
@@ -27,7 +28,9 @@ class _AddNodeFormState extends State<AddNodeForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-          const SizedBox(height:32,),
+          const SizedBox(
+            height: 32,
+          ),
           // Text("Helll"),
           CustomTextField(
             onSaved: (value) {
@@ -54,14 +57,16 @@ class _AddNodeFormState extends State<AddNodeForm> {
           BlocBuilder<AddNoteCubit, AddNotesStates>(
             builder: (context, state) {
               return CustomButton(
-                isLoading: state is AddNotesLoadingState?true:false,
+                isLoading: state is AddNotesLoadingState ? true : false,
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
+                    var currentDate = DateTime.now();
+                    var formatedTime = DateFormat.yMEd().format(currentDate);
                     var note = NoteModel(
                         title: title!,
                         subtitle: subtitle!,
-                        date: DateTime.now().toString(),
+                        date: formatedTime,
                         colorCode: Colors.blue.value);
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
                   } else {
