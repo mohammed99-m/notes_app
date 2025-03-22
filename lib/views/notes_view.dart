@@ -21,7 +21,7 @@ class NotesView extends StatelessWidget {
                   ),
                   context: context,
                   builder: (context) {
-                    return AddNodeButtomSheet();
+                    return const AddNodeButtomSheet();
                   });
             },
             child: const Icon(Icons.add),
