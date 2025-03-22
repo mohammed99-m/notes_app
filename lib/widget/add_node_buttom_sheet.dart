@@ -15,24 +15,25 @@ class AddNodeButtomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context)=>AddNoteCubit(),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: BlocConsumer<AddNoteCubit, AddNotesStates>(
-          listener: (context, state) {
-            if (state is ADDNotesFailedState) {
-              print(state.errorMessage);
-            }
-        
-            if (state is AddNoTesSuccessState) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: state is AddNotesLoadingState ? true : false,
-                child:const SingleChildScrollView(child:AddNodeForm()));
-          },
-        ),
+      child: BlocConsumer<AddNoteCubit, AddNotesStates>(
+        listener: (context, state) {
+          if (state is ADDNotesFailedState) {
+            print(state.errorMessage);
+          }
+      
+          if (state is AddNoTesSuccessState) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNotesLoadingState?true:false,
+            child: const Padding(
+              padding:EdgeInsets.all(16),
+              child:SingleChildScrollView(child:AddNodeForm()),
+            ),
+          );
+        },
       ),
     );
   }
