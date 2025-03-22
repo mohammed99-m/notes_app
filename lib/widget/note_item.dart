@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hivep2/models/note_model.dart';
 
 import '../views/edit_node_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key, required this.colorData});
+  const NoteItem({super.key, required this.colorData , required this.noteModel});
   final Color colorData;
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,14 +27,14 @@ class NoteItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(color: Colors.black, fontSize: 26),
+              title: Text(
+                noteModel.title,
+                style:const  TextStyle(color: Colors.black, fontSize: 26),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                    "Build Your Career with playing and be happy eeafdefdwefewf",
+                    noteModel.subtitle,
                     style: TextStyle(
                         fontSize: 18, color: Colors.black.withOpacity(0.6))),
               ),
