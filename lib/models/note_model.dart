@@ -1,10 +1,10 @@
 import 'package:hive/hive.dart';
 
 class NoteModel extends HiveObject {
-  final String title;
-  final String subtitle;
+  String title;
+  String subtitle;
   final String date;
-  final int colorCode;
+  int colorCode;
 
   NoteModel(
       {required this.title,
